@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+{% if result  %}
+    <h2>Search results:</h2>
+<ul>
+    {% for i in result %}
+    <li>
+        <a href="{% url 'order' i.id %}">
+              {{i.client}} {{i.vin_code}} {{i.vehicle_model.brand}} {{i.vehicle_model.model}}
+        </a>
+    </li>
+    {% endfor%}
+</ul>
+{% else %}
+    <h2>We Found nothing..</h2>
+    {% endif %}
+    <a href="{%url 'vehicles'%}">Go Back</a>
+    </main>
+
+{% endblock %}

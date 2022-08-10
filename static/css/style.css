@@ -38,3 +38,7 @@ a:hover{
     font-size: 1rem;
     padding: 1rem;
 }
+
+.pagination{
+    justify-content: space-evenly
+}

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from my_service.models import VehicleModel, Vehicle, Service, Order, OrderDetail
 from django.views import generic
+from django.db.models import Q
 
 
 # Create your views here.
@@ -65,3 +66,16 @@ class MyOrder(generic.DetailView):
     context_object_name = 'my_order'
 
     template_name = 'order.html'
+
+
+def search(request):
+    query = request.GET.get('query')
+    results = Vehicle.objects.filter(
+        Q(client__icontains=query) |
+        Q(vin_code__icontains=query) |
+        Q(registration_number__icontains=query) |
+        Q(vehicle_model__brand__icontains=query) |
+        Q(vehicle_model__model__icontains=query)
+    )
+
+    return render(request, 'search.html', {'result': results, 'query': query})
