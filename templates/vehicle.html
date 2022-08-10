@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    {% if my_vehicle %}
+<ul>
+    <li>Car Id: {{ my_vehicle.id }}</li>
+    <li>Car Registration Number: {{ my_vehicle.registration_number }}</li>
+    <li>Car Client: {{ my_vehicle.client }}</li>
+    <li>Car Model: {{ my_vehicle.vehicle_model.brand }} {{ my_vehicle.vehicle_model.model }}</li>
+</ul>
+    {% else %}
+
+    <h2>No Vehicle</h2>
+    {% endif %}
+    <a href="{%url 'vehicles'%}">Go Back</a>
+    </main>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <h2>All Orders</h2>
+    <ul>
+        {% for order in my_orders%}
+        <li>
+
+            <a href="{% url 'order' order.id%}">
+                {{order.date}}: {{order.vehicle.client}}
+                {% if order.is_done%}<span style="color:green">Completed</span>
+                {% else %}<span style="color:black">In Progress</span> {% endif %}
+            </a>
+
+
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{%url 'statistics'%}">Go Back</a>
+</main>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <h2>All Vehicles</h2>
+    <ul>
+        {% for vehicle in my_vehicles%}
+        <li>
+            <a href="{% url 'vehicle' vehicle.id %}">{{vehicle.client}}: {{vehicle.vehicle_model.brand}} {{vehicle.vehicle_model.model}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{%url 'statistics'%}">Go Back</a>
+</main>
+{% endblock %}

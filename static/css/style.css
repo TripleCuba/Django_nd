@@ -1,0 +1,35 @@
+body{
+    background-color: #FAF9F6;
+}
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    color:#6082B6;
+}
+.head {
+    color:#6082B6;
+    font-size: 2rem;
+    padding: 1rem;
+    border-bottom: 2px solid #CCCCFF;
+}
+main{
+    width: 80%;
+    margin: 0 auto;
+}
+li{
+    padding: 1rem;
+    color:#6082B6;
+    border-bottom: 2px solid #CCCCFF;
+}
+li:hover{
+    background-color: rgba(222, 221, 217, 0.4);
+}
+a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: #6082B6;
+}
+a:hover{
+    color:#a0b7db;
+
+}
