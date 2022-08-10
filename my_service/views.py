@@ -55,7 +55,7 @@ def vehicle(request, vehicle_id):
 class MyOrders(generic.ListView):
     model = Order
     context_object_name = 'my_orders'
-
+    paginate_by = 1
     template_name = 'orders.html'
 
 

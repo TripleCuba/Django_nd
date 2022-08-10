@@ -11,10 +11,19 @@
                 {% if order.is_done%}<span style="color:green">Completed</span>
                 {% else %}<span style="color:black">In Progress</span> {% endif %}
             </a>
-
-
         </li>
         {% endfor %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a class="pages" href="?page=1">&laquo; First </a>
+                <a class="pages" href="?page={{ page_obj.previous_page_number }}">Back </a>
+            {% endif %}
+                <p class="pages">{{page_obj.number}} from {{ page_obj.paginator.num_pages }}</p>
+            {% if page_obj.has_next %}
+                <a class="pages" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="pages" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </div>
     </ul>
     <a href="{%url 'statistics'%}">Go Back</a>
 </main>
